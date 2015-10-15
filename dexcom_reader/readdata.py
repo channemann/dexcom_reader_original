@@ -220,6 +220,8 @@ class Dexcom(object):
     assert ord(header[2]) == record_type_index
     assert header[4] == page
     packet_data = packet.data[header_data_len:]
+    
+    # print "RAWHEX", str(packet_data).encode('hex')
 
     return self.ParsePage(header, packet_data)
 
